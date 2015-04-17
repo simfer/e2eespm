@@ -1,0 +1,23 @@
+{
+  "generation": [
+    {
+      "templateId": "fioritemplate.UI5masterDetailKapsel",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Fri, 17 Apr 2015 15:07:17 GMT"
+    }
+  ],
+  "mockpreview": {
+    "mockUri": "/destinations/ESPM/ESPM_V1/api",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  }
+}
