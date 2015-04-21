@@ -48,6 +48,7 @@
 		</content>
 		<footer>
 			<Toolbar>
+			    <Button icon="sap-icon://add" press="addProduct"></Button>
 			</Toolbar>
 		</footer>
 	</Page>

@@ -1,0 +1,50 @@
+<core:View xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:c="sap.ui.core"
+	xmlns="sap.m" xmlns:f="sap.ui.layout.form" controllerName="com.test.e2e.view.DetailEdit" 
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+            <f:SimpleForm
+                id="formId"
+				minWidth="1024"
+				maxContainerCols="2"
+				layout="ResponsiveGridLayout"
+				labelSpanL="3"
+				labelSpanM="3"
+				emptySpanL="4"
+				emptySpanM="4"
+				columnsL="1"
+				columnsM="1"
+                title="New product">
+		    <Label text="Name"></Label>
+		    <Input id="Name" width="300px" placeholder="Name" value="{newProduct>/Detail/Name}"></Input>
+		    
+		    <Label text="Short Description"></Label>
+		    <Input id="ShortDescription" width="300px" placeholder="Short Description" value="{newProduct>/Detail/ShortDescription}"></Input>
+		    
+		    <Label text="Price"></Label>
+		    <Input id="Price" width="300px" placeholder="Price" value="{newProduct>/Detail/Price}"></Input>
+		    
+		    <Label text="CurrencyCode"></Label>
+		    <Input id="CurrencyCode" width="300px" placeholder="CurrencyCode" value="{newProduct>/Detail/CurrencyCode}"></Input>
+			
+			<Label text="Supplier" />
+		    <Select
+				id="idSelectSupplier"
+				items="{/Suppliers}"
+				value="{newProduct>/Detail/SupplierId}"
+				width="100%">
+				<c:Item text="{SupplierName}" />
+			</Select>
+	
+		</f:SimpleForm>
+		</content>
+		<footer>
+			<Toolbar>
+                    <Button id="btnBack" text="Back" width="150px" press="onBackPress"></Button>
+                    <Button id="btnSave" text="Save" width="150px" press="onSavePress"></Button>
+			</Toolbar>
+		</footer>
+	</Page>
+</core:View>

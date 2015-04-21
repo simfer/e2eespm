@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Dialog
+		title="Missing product name" type="Message">
+		<content>
+			<Text text="Please enter a name for the new product" />
+		</content>
+		<beginButton>
+			<Button text="OK" press="onDialogClose" />
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

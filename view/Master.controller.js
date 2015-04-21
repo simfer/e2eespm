@@ -109,6 +109,17 @@ com.test.e2e.util.Controller.extend("com.test.e2e.view.Master", {
 		// source itself (will depend on the device-dependent mode).
 		this.showDetail(oEvent.getParameter("listItem") || oEvent.getSource());
 	},
+    
+    //this is the function which handles the Add Product button press
+    addProduct: function() {
+    	//Load the detail edit view in desktop
+    	this.getRouter().myNavToWithoutHash({
+    		currentView: this.getView(),
+    		targetViewName: "com.test.e2e.view.DetailEdit",
+    		targetViewType: "XML",
+    		transition : "slide"
+    	});
+    },
 
 	showDetail : function(oItem) {
 		// If we're on a phone, include nav in history; if not, don't.

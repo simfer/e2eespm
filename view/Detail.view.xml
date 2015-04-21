@@ -10,6 +10,8 @@
 		title="{i18n>detailTitle}">
 		<content>
 			<ObjectHeader
+			
+			        icon="model/images/{PictureUrl}" iconDensityAware="false"
 				 
 					title="{Name}"
 				
@@ -19,10 +21,8 @@
 				 
 					numberUnit="{CurrencyCode}"
 				>
-				 
-					<ObjectAttribute text="{ShortDescription}"/>
-				
-				 
+				<ObjectAttribute text="{ProductId}"/> 
+				<ObjectAttribute text="{ShortDescription}"/>
 				<ObjectAttribute text="{LongDescription}"/>
 				
 			</ObjectHeader>
@@ -39,11 +39,20 @@
 							<core:Fragment fragmentName="com.test.e2e.view.DetailInfoForm" type="XML" />
 						</content>
 					</IconTabFilter>
+					<IconTabFilter
+	                    text="Full Image"
+	                    icon="sap-icon://attachment-photo">
+	                    <content>
+	                        <Image src="model/images/{PictureUrl}" width="200px" height="200px" densityAware="false"></Image>
+	                    </content>
+                    </IconTabFilter>
 				</items>
 			</IconTabBar>
 		</content>
 		<footer>
 			<Toolbar>
+                <Button icon="sap-icon://edit" press="editProduct"></Button>
+                <Button icon="sap-icon://delete" press="deleteProduct"></Button>
 			</Toolbar>
 		</footer>
 	</Page>
