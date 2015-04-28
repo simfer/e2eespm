@@ -43,6 +43,7 @@ com.test.e2e.util.Controller.extend("com.test.e2e.view.DetailEdit", {
 			        Price: oSelectedData.Price,
 				    CurrencyCode: oSelectedData.CurrencyCode,
 				    SupplierId: oSelectedData.SupplierId,
+				    PictureUrl: oSelectedData.PictureUrl,
 				    Supplier: oSelectedData.Supplier
 			    }
 		    });
@@ -54,7 +55,8 @@ com.test.e2e.util.Controller.extend("com.test.e2e.view.DetailEdit", {
             //the "newProduct" model is just initialized with a default currency code
 		    this.getView().getModel("newProduct").setData({
 			    Detail: {
-				    CurrencyCode: "EUR"
+				    CurrencyCode: "EUR",
+				    PictureUrl: "PF-1000.jpg"
 			    }
 		    });
         }
@@ -131,7 +133,8 @@ com.test.e2e.util.Controller.extend("com.test.e2e.view.DetailEdit", {
 			Name: mNewProduct.Name,
 			ShortDescription: mNewProduct.ShortDescription,
 			Price: mNewProduct.Price.toString(),
-			CurrencyCode: mNewProduct.CurrencyCode
+			CurrencyCode: mNewProduct.CurrencyCode,
+			PictureUrl: mNewProduct.PictureUrl
 		};
 
         // Add supplier association to the current payload
