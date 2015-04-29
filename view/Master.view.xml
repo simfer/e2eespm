@@ -23,7 +23,7 @@
 		<content>
 			<List
 				id="list"
-				items="{/Products}"
+				items="{/Products?$orderby=Name}"
 				mode="{device>/listMode}"
 				noDataText="{i18n>masterListNoDataText}"
 				select="onSelect"
