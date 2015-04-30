@@ -35,7 +35,7 @@ var devapp = {
 			if (devapp.smpInfo.server && devapp.smpInfo.server.length > 0) {
 				var context = {
 				  "serverHost" : devapp.smpInfo.server,
-				  "https" : "false",
+				  "https" : "true",
 				  "serverPort" : devapp.smpInfo.port
 				};
 				doLogonInit(context, devapp.smpInfo.appID);

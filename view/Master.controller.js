@@ -120,7 +120,65 @@ com.test.e2e.util.Controller.extend("com.test.e2e.view.Master", {
     		transition : "slide"
     	});
     },
-
+    
+    flushPress: function() {
+        jQuery.sap.require("sap.m.MessageBox");
+        var busyIndicator = new sap.m.BusyDialog("odataBusyIndicator", {
+            showCancelButton :false,
+            title : "Please Wait..",
+            text : "Flushing modifications"
+        });
+        busyIndicator.open();
+ 
+        //flush callback for success
+        function flush_success() {
+            busyIndicator.close();
+            busyIndicator.destroy();
+            sap.m.MessageBox.show("Modifications have been flushed.", 
+            				sap.m.MessageBox.Icon.INFORMATION, "Info");         	
+        }
+        
+        //flush callback for failure
+        function flush_failure() {
+            busyIndicator.close();
+            busyIndicator.destroy();
+            sap.m.MessageBox.show("Failed flush modifications. ", 
+            				sap.m.MessageBox.Icon.ERROR, "Error");         	
+        }
+        
+        //We only have 1 store, so address the first one
+        //In the stores array
+        sap.OData.stores[0].flush(flush_success, flush_failure);
+    },
+    
+    refreshPress: function() {
+        var busyIndicator = new sap.m.BusyDialog("odataRefreshBusyIndicator", {
+            showCancelButton :false,
+            title : "Please Wait..",
+            text : "Refreshing the Data"
+        });
+        busyIndicator.open();
+        
+        //refresh success callback
+        function refresh_success() {
+            busyIndicator.close();
+            busyIndicator.destroy();
+            sap.ui.getCore().getModel().refresh();        	
+        }
+        
+        //refresh error callback
+        function refresh_failure() {
+            busyIndicator.close();
+            busyIndicator.destroy();
+            sap.m.MessageBox.show("Failed to refresh data.", 
+            					sap.m.MessageBox.Icon.ERROR, "Error");         	
+        }
+        
+        //We only have 1 store, so address the first one
+        //In the stores array
+        sap.OData.stores[0].refresh(refresh_success, refresh_failure);
+    },
+    
 	showDetail : function(oItem) {
 		// If we're on a phone, include nav in history; if not, don't.
 		var bReplace = jQuery.device.is.phone ? false : true;

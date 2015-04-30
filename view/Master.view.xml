@@ -49,6 +49,8 @@
 		<footer>
 			<Toolbar>
 			    <Button icon="sap-icon://add" press="addProduct"></Button>
+			    <Button text="Flush" press="flushPress"></Button>
+			    <Button icon="sap-icon://refresh" press="refreshPress"></Button>
 			</Toolbar>
 		</footer>
 	</Page>

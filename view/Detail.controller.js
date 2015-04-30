@@ -65,23 +65,23 @@ com.test.e2e.util.Controller.extend("com.test.e2e.view.Detail", {
 		var frag = this.byId("detailFragment");
 		frag.bindElement(sEntityPath + "/Supplier");
 
-		//Check if the data is already on the client
-		if (!oView.getModel().getData(sEntityPath)) {
+// 		//Check if the data is already on the client
+// 		if (!oView.getModel().getData(sEntityPath)) {
 
-			// Check that the entity specified actually was found.
-			oView.getElementBinding().attachEventOnce("dataReceived", jQuery.proxy(function() {
-				var oData = oView.getModel().getData(sEntityPath);
-				if (!oData) {
-					this.showEmptyView();
-					this.fireDetailNotFound();
-				} else {
-					this.fireDetailChanged(sEntityPath);
-				}
-			}, this));
+// 			// Check that the entity specified actually was found.
+// 			oView.getElementBinding().attachEventOnce("dataReceived", jQuery.proxy(function() {
+// 				var oData = oView.getModel().getData(sEntityPath);
+// 				if (!oData) {
+// 					this.showEmptyView();
+// 					this.fireDetailNotFound();
+// 				} else {
+// 					this.fireDetailChanged(sEntityPath);
+// 				}
+// 			}, this));
 
-		} else {
-			this.fireDetailChanged(sEntityPath);
-		}
+// 		} else {
+ 			this.fireDetailChanged(sEntityPath);
+// 		}
 
 	},
 

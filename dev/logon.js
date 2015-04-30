@@ -17,13 +17,24 @@ function doLogonInit(context, appId) {
     return;
   }
   //Make call to Logon's Init method to get things registered and all setup
+  // OFFLINE
   if (window.sap_webide_companion) {
-	sap.Logon.initPasscodeManager(onLogonInitSuccess, onLogonError, appId);
+	sap.Logon.initPasscodeManager(onLogonInitSuccessOffline, onLogonError, appId);
   } else {
-	sap.Logon.init(onLogonInitSuccess, onLogonError, appId, context);
+	sap.Logon.init(onLogonInitSuccessOffline, onLogonError, appId, context);
   }
   console.log("Leaving doLogonInit");
+  // END of OFFLINE
+
+//Old stuff
+//   if (window.sap_webide_companion) {
+// 	sap.Logon.initPasscodeManager(onLogonInitSuccess, onLogonError, appId);
+//   } else {
+// 	sap.Logon.init(onLogonInitSuccess, onLogonError, appId, context);
+//   }
+//   console.log("Leaving doLogonInit");
 }
+
 
 var onLogonInitSuccess = function(context) {
   console.log("Entering LogonInitSuccess");
@@ -36,6 +47,10 @@ var onLogonInitSuccess = function(context) {
     //var msg = "Server Returned: " + JSON.stringify(context);
     //console.log(msg);
 	
+	// OFFLINE
+    sap.OData.applyHttpClient();
+    // END of OFFLINE
+	
 	//start UI5 application
 	startApp();
   } else {
@@ -44,6 +59,13 @@ var onLogonInitSuccess = function(context) {
   }
   console.log("Leaving LogonInitSuccess");
 };
+
+//OFFLINE
+var onLogonInitSuccessOffline = function(context) {
+    openStore(onLogonInitSuccess, context );
+}
+
+//END of OFFLINE
 
 var onLogonError = function(errObj) {
   //Generic error function, used as a callback by several of the methods

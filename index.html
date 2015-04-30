@@ -18,10 +18,17 @@
 		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript" src="dev/logon.js"></script>
 		<script type="text/javascript" src="dev/index.js"></script>
+		<script type="text/javascript" src="dev/smp_helpers.js"></script>
 		
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 
 		<script>
+		    // OFFLINE
+            definingRequests = {
+                "req1":          "Products?$expand=Supplier"
+            }
+            // END of OFFLINE
+
 			function getUrlParameterName(sParam)
 			{
 				var sPageURL = window.location.search.substring(1);
