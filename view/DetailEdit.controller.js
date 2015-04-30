@@ -93,18 +93,21 @@ com.test.e2e.util.Controller.extend("com.test.e2e.view.DetailEdit", {
 			    //we read the list of all the products in descending order and select the first product ID
     			this.getView().getModel().read("/Products", {
     				urlParameters : {
+    				    "filter" : "startswith(ProductId,%20%27AA%27)",
     					"$top" : 1,
-    					"$orderby" : "ProductId desc",
+    					"$orderby" : "ProductId asc",
     					"$select" : "ProductId"
     				},
     				async : false,
     				success : jQuery.proxy(function(oData) {
     				    //if we are able to get the last product in the list
     				    var str = oData.results[0].ProductId;
+    				    console.log("SSSSSSSSS");
+    				    console.log(str);
     				    //we take just the numeric part of the ID and increase it by 1
     				    var num = parseInt(str.match(/\d+/),10) + 1;
     				    //then we create the new product id
-    				    str = "HT-" + num.toString();
+    				    str = "AA-" + num.toString();
     				    //and assign it to the product being created
 		                this.getView().getModel("newProduct").setProperty("/Detail/ProductId",str);
 		                //now we can save the product
